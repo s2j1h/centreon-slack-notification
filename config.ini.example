@@ -1,0 +1,3 @@
+slack_posturl = url
+slack_username = username
+centreon_url = url (without trailing /)
