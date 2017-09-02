@@ -100,7 +100,6 @@ if ($options{state} eq 'UP') {
                 {
                     title => 'Message',
                     value => $options{message},
-                    short => 'false',
                 },
             ]
         },
