@@ -11,7 +11,7 @@ Based on https://github.com/Shini31/centreon-notifications
     * slack_username : Integration's username (eg. Centreon)
 4. Don't miss install the following Perl modules : HTTP::Request::Common, LWP::UserAgent, JSON, Getopt::Long, Config::General.
 5. Create two new notification's command, host-notify-by-slack and service-notify-by-slack :
-    * `perl /directoryofplugins/centreon-slack-notification/host-slack-notification.pl --host="$HOSTNAME$" --state="$HOSTSTATE$" --address="$HOSTADDRESS$" --channel="channelofyourchoice"` --message"$HOSTOUTPUT$"`
+    * `perl /directoryofplugins/centreon-slack-notification/host-slack-notification.pl --host="$HOSTNAME$" --state="$HOSTSTATE$" --address="$HOSTADDRESS$" --channel="channelofyourchoice"` --message="$HOSTOUTPUT$"`
     * `perl /directoryofplugins/centreon-slack-notification/service-slack-notification.pl --host="$HOSTNAME$" --address="$HOSTADDRESS$" --output="$SERVICEOUTPUT$" --service="$SERVICEDESC$" --state="$SERVICESTATE$" --channel="channelofyourchoice"`
 6. Adapt your notification's configuration for using theses new commands
 7. Generate, move and export the new configuration on your all pollers

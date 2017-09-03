@@ -67,7 +67,7 @@ my $slack_payload = {
 };
 
 # Notification text
-if ($options{state} eq 'RECOVERY') {
+if ($options{state} eq 'RECOVERY' || $options{state} eq 'OK') {
     $slack_payload->{attachments} = [
         {
             fallback => 'Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state},
@@ -136,7 +136,7 @@ if ($options{state} eq 'RECOVERY') {
             ]
         },
     ],
-} elsif ($options{state} eq 'UNKNOWN') {
+} else {
     $slack_payload->{attachments} = [
         {
             fallback => 'Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state} . ': ' . $conf{centreon_url} . '/centreon/main.php?p=20201&o=svcd&host_name=' . $options{host} . '&service_description=' . $options{service},
