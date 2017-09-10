@@ -71,6 +71,9 @@ if ($options{state} eq 'RECOVERY' || $options{state} eq 'OK') {
     $slack_payload->{attachments} = [
         {
             fallback => 'Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state},
+            text => '<' . $conf{centreon_url} . '/centreon/main.php?p=20201&o=svcd&host_name=' . $options{host} . '&service_description=' . $options{service} . '|Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state} . '>',
+            pretext => 'Cleared',
+            author_name => $options{host},
             color => 'good',
             fields => [
                 {
@@ -91,6 +94,8 @@ if ($options{state} eq 'RECOVERY' || $options{state} eq 'OK') {
         {
             fallback => 'Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state} . ': ' . $conf{centreon_url} . '/centreon/main.php?p=20201&o=svcd&host_name=' . $options{host} . '&service_description=' . $options{service},
             text => '<' . $conf{centreon_url} . '/centreon/main.php?p=20201&o=svcd&host_name=' . $options{host} . '&service_description=' . $options{service} . '|Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state} . '>',
+            pretext => 'Warning',
+            author_name => $options{host},
             color => 'warning',
             fields => [
                 {
@@ -104,7 +109,7 @@ if ($options{state} eq 'RECOVERY' || $options{state} eq 'OK') {
                     short => 'true',
                 },
                 {
-                    title => 'Output',
+                    title => 'Message',
                     value => $options{output},
                     short => 'false',
                 },
@@ -116,6 +121,8 @@ if ($options{state} eq 'RECOVERY' || $options{state} eq 'OK') {
         {
             fallback => 'Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state} . ': ' . $conf{centreon_url} . '/centreon/main.php?p=20201&o=svcd&host_name=' . $options{host} . '&service_description=' . $options{service},
             text => '<' . $conf{centreon_url} . '/centreon/main.php?p=20201&o=svcd&host_name=' . $options{host} . '&service_description=' . $options{service} . '|Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state} . '>',
+            pretext => 'Critical',
+            author_name => $options{host},
             color => 'danger',
             fields => [
                 {
@@ -129,7 +136,7 @@ if ($options{state} eq 'RECOVERY' || $options{state} eq 'OK') {
                     short => 'true',
                 },
                 {
-                    title => 'Output',
+                    title => 'Message',
                     value => $options{output},
                     short => 'false',
                 },
@@ -141,6 +148,8 @@ if ($options{state} eq 'RECOVERY' || $options{state} eq 'OK') {
         {
             fallback => 'Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state} . ': ' . $conf{centreon_url} . '/centreon/main.php?p=20201&o=svcd&host_name=' . $options{host} . '&service_description=' . $options{service},
             text => '<' . $conf{centreon_url} . '/centreon/main.php?p=20201&o=svcd&host_name=' . $options{host} . '&service_description=' . $options{service} . '|Service ' . $options{service} . ' (Host: ' . $options{host} . ') is ' . $options{state} . '>',
+            pretext => 'Other',
+            author_name => $options{host},
             color => '#DCDADA',
             fields => [
                 {
@@ -154,7 +163,7 @@ if ($options{state} eq 'RECOVERY' || $options{state} eq 'OK') {
                     short => 'true',
                 },
                 {
-                    title => 'Output',
+                    title => 'Message',
                     value => $options{output},
                     short => 'false',
                 },
